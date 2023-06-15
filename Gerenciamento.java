@@ -219,11 +219,4 @@ public class Gerenciamento {
             return sb.toString();
         }
     }
-    /*
-     * void exibirSaldo();
-     * void realizarSaque(double valor);
-     * void realizarDeposito(double valor);
-     * void solicitarEmprestimo(double valor);
-     * void sairDaConta();
-     */
 }
