@@ -1,4 +1,5 @@
 public abstract class Conta {
+
     //-----===ATRIBUTOS===-----//
     protected String numeroConta;
     protected String nome;
@@ -12,6 +13,7 @@ public abstract class Conta {
     public String getNumeroConta() {
         return numeroConta;
     }
+    
     public void setNumeroConta(String numeroConta) {
         this.numeroConta = numeroConta;
     }

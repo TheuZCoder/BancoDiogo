@@ -4,5 +4,6 @@ public class PessoaJuridica extends Conta{
         this.nome = nome;
         this.cpfCnpj = cpfCnpj;
         this.saldo = saldo;
+        
     }
 }
