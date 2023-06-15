@@ -23,7 +23,7 @@ public class Gerenciamento {
 
     public void CriarConta() {
         System.out.println(
-                "------------------------------------------------\n[A] - Pessoa Física | [B] - Pessoa Jurídica");
+                "------------------------------------------------------------------------------------\n[A] - Pessoa Física | [B] - Pessoa Jurídica");
         escolha = sc.next().toLowerCase();
 
         while (!escolha.equalsIgnoreCase("A") & !escolha.equalsIgnoreCase("B")) {
@@ -34,17 +34,17 @@ public class Gerenciamento {
         if (escolha.equalsIgnoreCase("A")) {
             numeroConta = contas.get(contas.size() - 1).numeroConta + "1";
 
-            System.out.println("------------------------------\nNome:");
+            System.out.println("------------------------------------------------------------------------------------\nNome:");
             nome = sc.next();
 
-            System.out.println("------------------------------\nCPF:         [xxxxxxxxxxx]");
+            System.out.println("------------------------------------------------------------------------------------\nCPF:         [xxxxxxxxxxx]");
             cpfCnpj = sc.next();
             cpfCnpj = FormatarCpfCnpj(cpfCnpj, "CPF");
 
             for (Conta conta : contas) {
                 while (cpfCnpj.equals(conta.cpfCnpj)) {
                     System.out.println(
-                            "-----------------------------------------------------------------\nJá existe uma conta cadastrada nesse CPF\nInsira um novo CPF");
+                            "------------------------------------------------------------------------------------\nJá existe uma conta cadastrada nesse CPF\nInsira um novo CPF");
                     cpfCnpj = sc.next();
                     cpfCnpj = FormatarCpfCnpj(cpfCnpj, "CPF");
                 }
@@ -56,17 +56,17 @@ public class Gerenciamento {
         } else {
             numeroConta = contas.get(contas.size() - 1).numeroConta + 1;
 
-            System.out.println("------------------------------\nNome:");
+            System.out.println("------------------------------------------------------------------------------------\nNome:");
             nome = sc.next();
 
-            System.out.println("------------------------------\nCNPJ:       [xxxxxxxx0001xx]");
+            System.out.println("------------------------------------------------------------------------------------\nCNPJ:       [xxxxxxxx0001xx]");
             cpfCnpj = sc.next();
             cpfCnpj = FormatarCpfCnpj(cpfCnpj, "CNPJ");
 
             for (Conta conta : contas) {
                 while (cpfCnpj.equals(conta.cpfCnpj)) {
                     System.out.println(
-                            "-----------------------------------------------------------------\nJá existe uma conta cadastrada nesse CNPJ\nInsira um novo CNPJ");
+                            "------------------------------------------------------------------------------------\nJá existe uma conta cadastrada nesse CNPJ\nInsira um novo CNPJ");
                     cpfCnpj = sc.next();
                     cpfCnpj = FormatarCpfCnpj(cpfCnpj, "CNPJ");
                 }
@@ -80,7 +80,7 @@ public class Gerenciamento {
 
     public void Validacao() {
         System.out.println(
-                "------------------------------------------------\n[A] - Pessoa Física | [B] - Pessoa Jurídica");
+                "------------------------------------------------------------------------------------\n[A] - Pessoa Física | [B] - Pessoa Jurídica");
         escolha = sc.next().toLowerCase();
 
         while (!escolha.equalsIgnoreCase("A") & !escolha.equalsIgnoreCase("B")) {
@@ -90,7 +90,7 @@ public class Gerenciamento {
 
         if (escolha.equalsIgnoreCase("A")) {
             System.out.println(
-                    "-----------------------------------------------------------------\nInsira seu CPF ou Número da Conta");
+                    "------------------------------------------------------------------------------------\nInsira seu CPF ou Número da Conta");
             cpfCnpj = sc.next();
             cpfCnpj = FormatarCpfCnpj(cpfCnpj, "CPF");
 
@@ -101,7 +101,7 @@ public class Gerenciamento {
             }
         } else {
             System.out.println(
-                    "-----------------------------------------------------------------\nInsira seu CNPJ ou Número da Conta");
+                    "------------------------------------------------------------------------------------\nInsira seu CNPJ ou Número da Conta");
             cpfCnpj = sc.next();
             cpfCnpj = FormatarCpfCnpj(cpfCnpj, "CNPJ");
 
@@ -116,7 +116,7 @@ public class Gerenciamento {
     public void AcessarConta(Conta conta) {
         do {
             System.out.println(
-                    "\n----------------------------------------------------------------------\n[1] - Saldo | [2] - Saque | [3] - Depósito | [4] - Empréstimo | [S] - Sair da Conta");
+                    "\n------------------------------------------------------------------------------------\n[1] - Saldo | [2] - Saque | [3] - Depósito | [4] - Empréstimo | [S] - Sair da Conta");
             escolha = sc.next().toLowerCase();
 
             switch (escolha) {
@@ -146,20 +146,20 @@ public class Gerenciamento {
 
     public void ExibirSaldo(Conta conta) {
         System.out
-                .println("\n------------------------------------------------------------------------------\nSaldo: R$ "
+                .println("\n------------------------------------------------------------------------------------\nSaldo: R$ "
                         + conta.getSaldo());
     }
 
     public void FazerSaque(Conta conta) {
         System.out.println(
-                "\n------------------------------------------------------------------------------\nSaldo:    R$"
+                "\n------------------------------------------------------------------------------------\nSaldo:    R$"
                         + conta.getSaldo() + "\nQuanto deseja sacar?");
         saque = sc.nextDouble();
 
         if (saque <= conta.getSaldo()) {
             conta.setSaldo(conta.getSaldo() - saque);
             System.out.println(
-                    "-------------------------------------------------------\nSaque efetuado com sucesso!\nSaldo: R$ "
+                    "------------------------------------------------------------------------------------\nSaque efetuado com sucesso!\nSaldo: R$ "
                             + conta.getSaldo());
         } else {
             System.out.println(
@@ -176,7 +176,7 @@ public class Gerenciamento {
         if (deposito <= 10000) {
             conta.setSaldo(conta.getSaldo() + deposito);
             System.out.println(
-                    "-------------------------------------------------------\nDepósito efetuado com sucesso!\nSaldo: R$ "
+                    "------------------------------------------------------------------------------------\nDepósito efetuado com sucesso!\nSaldo: R$ "
                             + conta.getSaldo());
         } else {
             System.out.println("Valor muito alto. Insira um valor mais baixo ou procure negociar.");
@@ -185,14 +185,14 @@ public class Gerenciamento {
 
     public void FazerEmprestimo(Conta conta) {
         System.out.println(
-                "\n------------------------------------------------------------------------------\nSaldo:    R$"
+                "\n------------------------------------------------------------------------------------\nSaldo:    R$"
                         + conta.getSaldo() + "\nQual o valor do empréstimo?");
         emprestimo = sc.nextDouble();
         tempo = (int) Math.ceil(emprestimo / (conta.getSaldo() * 0.25));
 
         if (emprestimo <= 50000) {
             System.out.println(
-                    "-------------------------------------------------------\nEmpréstimo fechado com sucesso!\nSaldo: R$ "
+                    "------------------------------------------------------------------------------------\nEmpréstimo fechado com sucesso!\nSaldo: R$ "
                             + (conta.getSaldo() * 0.25) + "\nSuas parcelas serão de " + conta.getSaldo()
                             + " [25% de seu saldo], à uma taxa de 2% a.m., por " + tempo + " meses");
             conta.setSaldo(conta.getSaldo() + emprestimo);
